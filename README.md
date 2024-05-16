@@ -2,16 +2,30 @@
 Input image here
 <!--<img width="500" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/96f3d83f-f0ef-41fe-b7b5-2d850d043ed0">-->
 
-## 1. 제작 의도
+## 프로젝트 소개
 - 한동대학교 장소 예약 관리 프로그램입니다.
 - 장소 예약 및 관리가 가능합니다.
 - 히딩크 필드, 농구장, 테니스장, bbq시트 예약이 가능합니다.(예정)
 
-## 2. 제작자
+## 팀원 구성
 |  이민석(22100504)   |                             남종운(22000220)                                           |
 |:-----------:|:-----------------------------------------------------------------------------------:|
 | <img src="https://github.com/Glen02lee.png" alt="프로필 이미지" width="200" height="200"> |  <img src="https://github.com/jwoon0606.png" alt="프로필 이미지" width="200" height="200">|
 |[@Glen02lee](https://github.com/Glen02lee)|                            [@jwoon0606](https://github.com/jwoon0606)               |
+
+## 1. 개발 환경
+- Front : Java GUI(Swing)
+- Back-end : Java
+- 버전 관리 : Github
+
+## 2. 개발 기간
+### 개발 기간
+- 전체 개발 기간 : 2024-5-15 ~ (진행중)
+- GUI 구현 : 2024-5-15 ~ (진행중)
+- 기능 구현 : 2024-5-15 ~ (진행중)
+
+### 작업 관리
+- 주기적으로 오프라인 미팅을 가졌습니다.
 
 ## 3. 메뉴별 기능
 (아래는 예시)
