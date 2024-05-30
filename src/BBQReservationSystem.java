@@ -125,7 +125,13 @@ public class BBQReservationSystem extends JFrame {
         JScrollPane calendarScrollPane = new JScrollPane(calendarTable);
         calendarScrollPane.setBounds(20, 100, 740, 400);
         mainPanel.add(calendarScrollPane);
+
+        // 현재 날짜 표시
+        JLabel currentDateLabel = new JLabel("Today: " + (currentCalendar.get(Calendar.MONTH) + 1) + "/" + currentCalendar.get(Calendar.DAY_OF_MONTH) + "/" + currentCalendar.get(Calendar.YEAR));
+        currentDateLabel.setBounds(20, 70, 200, 25);
+        mainPanel.add(currentDateLabel);
     }
+
 
     private void showReservationForm() {
         JFrame reservationFrame = new JFrame("Make a Reservation");
@@ -363,17 +369,33 @@ public class BBQReservationSystem extends JFrame {
                 String date = (currentCalendar.get(Calendar.MONTH) + 1) + "/" + day + "/" + currentCalendar.get(Calendar.YEAR);
                 long count = reservations.stream().filter(r -> r.getDate().equals(date)).count();
 
-                if (count > 0) {
+                // 현재 날짜인지 확인
+                boolean isToday = isToday(currentCalendar, day);
+
+                if (isToday) {
+                    cell.setBackground(new Color(200, 200, 200)); // 현재 날짜인 경우 배경색을 노란색으로 설정
+                    setText(value.toString() + " (" + count + ")");
+                } else if (count > 0) {
                     cell.setBackground(Color.PINK);
                     setText(value.toString() + " (" + count + ")");
                 } else {
                     cell.setBackground(Color.WHITE);
+                    setText(value.toString() + " (" + count + ")");
                 }
             } else {
                 cell.setBackground(Color.WHITE);
             }
 
             return cell;
+        }
+
+        // 현재 날짜인지 확인하는 메서드
+        private boolean isToday(Calendar calendar, int day) {
+            Calendar today = Calendar.getInstance();
+            int currentMonth = calendar.get(Calendar.MONTH);
+            int currentYear = calendar.get(Calendar.YEAR);
+
+            return (today.get(Calendar.MONTH) == currentMonth && today.get(Calendar.YEAR) == currentYear && today.get(Calendar.DAY_OF_MONTH) == day);
         }
     }
 
