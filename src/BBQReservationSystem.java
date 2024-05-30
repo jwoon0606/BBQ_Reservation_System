@@ -374,13 +374,13 @@ public class BBQReservationSystem extends JFrame {
 
                 if (isToday) {
                     cell.setBackground(new Color(200, 200, 200)); // 현재 날짜인 경우 배경색을 노란색으로 설정
-                    setText(value.toString() + " (" + count + ")");
+                    setText(value.toString() + " (" + (4-count) + ")");
                 } else if (count > 0) {
                     cell.setBackground(Color.PINK);
-                    setText(value.toString() + " (" + count + ")");
+                    setText(value.toString() + " (" + (4-count) + ")");
                 } else {
                     cell.setBackground(Color.WHITE);
-                    setText(value.toString() + " (" + count + ")");
+                    setText(value.toString() + " (" + (4-count) + ")");
                 }
             } else {
                 cell.setBackground(Color.WHITE);
