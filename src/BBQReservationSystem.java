@@ -75,13 +75,32 @@ public class BBQReservationSystem extends JFrame {
         loginButton.setBounds(100, 80, 160, 25);
         loginPanel.add(loginButton);
 
+        JLabel loginStatusLabel = new JLabel("");
+        loginStatusLabel.setBounds(20, 110, 300, 25);
+        loginPanel.add(loginStatusLabel);
+
         loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // 간단한 로그인 검증 (생략)
-                ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "main");
+                String enteredName = loginNameField.getText();
+                char[] enteredPassword = loginPasswordField.getPassword();
+                String enteredPasswordString = new String(enteredPassword); // 비밀번호를 문자열로 변환
+
+                // 간단한 로그인 검증
+                if (isValidLogin(enteredName, enteredPasswordString)) {
+                    ((CardLayout) getContentPane().getLayout()).show(getContentPane(), "main");
+                } else {
+                    loginStatusLabel.setText("Invalid name or password. Please try again.");
+                    // 비밀번호 필드 지우기
+                    loginPasswordField.setText("");
+                }
             }
         });
+    }
+
+    private boolean isValidLogin(String name, String password) {
+        // 예를 들어, 사용자 이름과 비밀번호가 "admin"으로 설정되어 있다고 가정
+        return name.equals("admin") && password.equals("admin123");
     }
 
     private void initializeMainPanel() {
