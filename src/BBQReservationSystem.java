@@ -152,7 +152,7 @@ public class BBQReservationSystem extends JFrame {
         seatLabel.setBounds(20, 80, 80, 25);
         reservationFrame.add(seatLabel);
 
-        seatComboBox = new JComboBox<>(new String[]{"Seat 1", "Seat 2", "Seat 3"});
+        seatComboBox = new JComboBox<>(new String[]{"Seat 1", "Seat 2", "Seat 3", "Seat 4"});
         seatComboBox.setBounds(100, 80, 160, 25);
         reservationFrame.add(seatComboBox);
 
@@ -164,7 +164,7 @@ public class BBQReservationSystem extends JFrame {
         monthComboBox.setBounds(100, 110, 80, 25);
         reservationFrame.add(monthComboBox);
 
-        yearComboBox = new JComboBox<>(new Integer[]{2023, 2024, 2025});
+        yearComboBox = new JComboBox<>(new Integer[]{2024});
         yearComboBox.setBounds(190, 110, 80, 25);
         reservationFrame.add(yearComboBox);
 
@@ -172,7 +172,7 @@ public class BBQReservationSystem extends JFrame {
         timeLabel.setBounds(20, 140, 80, 25);
         reservationFrame.add(timeLabel);
 
-        timeComboBox = new JComboBox<>(new String[]{"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"});
+        timeComboBox = new JComboBox<>(new String[]{"08:30 AM", "10:00 AM", "11:30 AM", "1:00 PM", "2:30 PM", "4:00 PM", "5:30 PM", "7:00 PM"});
         timeComboBox.setBounds(100, 140, 160, 25);
         reservationFrame.add(timeComboBox);
 
