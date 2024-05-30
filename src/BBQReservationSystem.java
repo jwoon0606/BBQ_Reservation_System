@@ -1,10 +1,10 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class BBQReservationSystem extends JFrame {
+    private static final String FILE_NAME = "test.txt"; // 원하는 파일 이름으로 변경
     private JTextField nameField;
     private JTextField phoneField;
     private JComboBox<String> seatComboBox;
@@ -33,6 +34,8 @@ public class BBQReservationSystem extends JFrame {
     public BBQReservationSystem() {
         reservations = new ArrayList<>();
         currentCalendar = new GregorianCalendar();
+
+        loadReservations(); // 예약 정보를 파일에서 로드
 
         setTitle("BBQ Seat Reservation System");
         setSize(800, 600);
@@ -233,6 +236,8 @@ public class BBQReservationSystem extends JFrame {
         reservations.add(reservation);
         reservationArea.setText("Reservation made: " + reservation.toString());
 
+        saveReservations(); // 예약 정보 저장
+
         updateCalendar();
     }
 
@@ -242,6 +247,84 @@ public class BBQReservationSystem extends JFrame {
 
     private boolean validatePhone(String phone) {
         return Pattern.matches("\\d{3}-\\d{4}-\\d{4}", phone);
+    }
+
+    private void saveReservations() {
+        // 기존 예약 정보를 먼저 파일에서 읽어옵니다.
+        List<Reservation> existingReservations = loadExistingReservations();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            // 기존 예약 정보를 파일에 쓰기
+            for (Reservation reservation : existingReservations) {
+                writer.write(reservation.toString());
+                writer.newLine();
+            }
+
+            // 새로운 예약 정보를 파일에 쓰기
+            for (Reservation reservation : reservations) {
+                writer.write(reservation.toString());
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    // 기존 예약 정보를 파일에서 읽어오는 메서드
+    private List<Reservation> loadExistingReservations() {
+        List<Reservation> existingReservations = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // 각 줄을 파싱하여 Reservation 객체로 변환하여 리스트에 추가
+                Reservation reservation = parseReservation(line);
+                existingReservations.add(reservation);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return existingReservations;
+    }
+
+    // 문자열을 Reservation 객체로 변환하는 메서드
+    private Reservation parseReservation(String line) {
+        // 예약 정보를 쉼표로 구분하여 분할
+        String[] fields = line.split(",");
+        // 예약 정보의 형식이 올바른지 확인
+        if (fields.length == 5) {
+            // 필드의 값을 가져와서 예약 객체 생성
+            String name = fields[0].trim();
+            String phone = fields[1].trim();
+            String seat = fields[2].trim();
+            String date = fields[3].trim();
+            String time = fields[4].trim();
+            return new Reservation(name, phone, seat, date, time);
+        } else {
+            // 잘못된 형식의 예약 정보인 경우 null 반환
+            System.out.println("잘못된 형식의 예약 정보입니다: " + line);
+            return null;
+        }
+    }
+
+
+    private void loadReservations() {
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                // 각 줄을 파싱하여 Reservation 객체로 변환하여 리스트에 추가
+                Reservation reservation = parseReservation(line);
+                if (reservation != null) {
+                    reservations.add(reservation);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void updateCalendar() {
