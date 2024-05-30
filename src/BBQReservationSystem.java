@@ -172,7 +172,7 @@ public class BBQReservationSystem extends JFrame {
         timeLabel.setBounds(20, 140, 80, 25);
         reservationFrame.add(timeLabel);
 
-        timeComboBox = new JComboBox<>(new String[]{"08:30 AM", "10:00 AM", "11:30 AM", "1:00 PM", "2:30 PM", "4:00 PM", "5:30 PM", "7:00 PM"});
+        timeComboBox = new JComboBox<>(new String[]{"08:30 AM", "10:00 AM", "11:30 AM", "01:00 PM", "02:30 PM", "04:00 PM", "05:30 PM", "07:00 PM"});
         timeComboBox.setBounds(100, 140, 160, 25);
         reservationFrame.add(timeComboBox);
 
