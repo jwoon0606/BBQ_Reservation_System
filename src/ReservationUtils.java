@@ -2,15 +2,26 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ReservationUtils {
+    private static final Pattern RESERVATION_PATTERN = Pattern.compile("Reservation\\{name='(.*?)', phone='(.*?)', seat='(.*?)', date='(.*?)', time='(.*?)'\\}");
+
     public static void loadReservations(List<Reservation> reservations, String fileName) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length == 5) {
-                    reservations.add(new Reservation(parts[0], parts[1], parts[2], parts[3], parts[4]));
+                Matcher matcher = RESERVATION_PATTERN.matcher(line);
+                if (matcher.matches()) {
+                    reservations.add(new Reservation(
+                        matcher.group(1),
+                        matcher.group(2),
+                        matcher.group(3),
+                        matcher.group(4),
+                        matcher.group(5)
+                    ));
                 }
             }
         } catch (IOException e) {
@@ -19,9 +30,9 @@ public class ReservationUtils {
     }
 
     public static void saveReservations(List<Reservation> reservations, String fileName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) { // Overwrite mode
             for (Reservation reservation : reservations) {
-                writer.write(reservation.getName() + "," + reservation.getPhone() + "," + reservation.getSeat() + "," + reservation.getDate() + "," + reservation.getTime());
+                writer.write(reservation.toString());
                 writer.newLine();
             }
         } catch (IOException e) {
