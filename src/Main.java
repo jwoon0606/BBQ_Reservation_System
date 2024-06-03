@@ -3,6 +3,8 @@ import javax.swing.table.DefaultTableModel;  // DefaultTableModel 클래스 임�
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -27,6 +29,7 @@ public class Main extends JFrame {
     private JPasswordField loginPasswordField;
     private JPanel loginPanel;
     private JPanel mainPanel;
+    private JTextArea reservationDetailsArea; // 예약 세부 정보를 표시할 텍스트 영역
 
     public Main() {
         reservations = new ArrayList<>();
@@ -114,7 +117,23 @@ public class Main extends JFrame {
 
         calendarTable = new JTable();
         calendarTable.setRowHeight(40);
-        calendarTable.setDefaultRenderer(Object.class, new CalendarCellRenderer(currentCalendar, reservations));
+        CalendarCellRenderer renderer = new CalendarCellRenderer(currentCalendar, reservations);
+        calendarTable.setDefaultRenderer(Object.class, renderer);
+
+        calendarTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int row = calendarTable.rowAtPoint(e.getPoint());
+                int col = calendarTable.columnAtPoint(e.getPoint());
+                Object value = calendarTable.getValueAt(row, col);
+                if (value != null) {
+                    int day = (int) value;
+                    renderer.setSelectedDay(day);
+                    updateCalendar();
+                    showReservationsForDay(day);
+                }
+            }
+        });
 
         updateCalendar();
 
@@ -125,6 +144,11 @@ public class Main extends JFrame {
         JLabel currentDateLabel = new JLabel("Today: " + (currentCalendar.get(Calendar.MONTH) + 1) + "/" + currentCalendar.get(Calendar.DAY_OF_MONTH) + "/" + currentCalendar.get(Calendar.YEAR));
         currentDateLabel.setBounds(20, 70, 200, 25);
         mainPanel.add(currentDateLabel);
+
+        reservationDetailsArea = new JTextArea();
+        reservationDetailsArea.setBounds(20, 510, 740, 60);
+        reservationDetailsArea.setEditable(false);
+        mainPanel.add(reservationDetailsArea);
     }
 
     private void showReservationForm() {
@@ -153,6 +177,20 @@ public class Main extends JFrame {
 
         DefaultTableModel model = new DefaultTableModel(data, columnNames);
         calendarTable.setModel(model);
+    }
+
+    private void showReservationsForDay(int day) {
+        String selectedDate = (currentCalendar.get(Calendar.MONTH) + 1) + " " + day + ", " + currentCalendar.get(Calendar.YEAR);
+        StringBuilder details = new StringBuilder("Reservations for " + selectedDate + ":\n");
+        for (Reservation reservation : reservations) {
+            if (reservation.getDate().equals(selectedDate)) {
+                details.append("Time: ").append(reservation.getTime())
+                        .append(", Name: ").append(reservation.getName())
+                        .append(", Phone: ").append(reservation.getPhone())
+                        .append(", Seat: ").append(reservation.getSeat()).append("\n");
+            }
+        }
+        reservationDetailsArea.setText(details.toString());
     }
 
     public static void main(String[] args) {
