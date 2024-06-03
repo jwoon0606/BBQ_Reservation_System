@@ -1,4 +1,5 @@
-Reservation{name='ㄷㅍㄴㅍㄴ', phone='010-2882-8281', seat='Seat 3', date='April 2023', time='2:00 PM'}
-Reservation{name='ㄷㅍㄴㅍㄴ', phone='010-2882-8281', seat='Seat 3', date='April 2023', time='4:00 PM'}
-Reservation{name='ejovjs', phone='010-9291-2881', seat='Seat 2', date='May 2023', time='12:00 PM'}
-Reservation{name='ejovjs', phone='010-9291-2881', seat='Seat 2', date='May 2023', time='2:00 PM'}
+Reservation{name='sefe', phone='010-3819-3892', seat='Seat 4', date='January 1, 2024', time='08:30 AM'}
+Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='08:30 AM'}
+Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='01:00 PM'}
+Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='05:30 PM'}
+Reservation{name='evjosje', phone='010-2892-8291', seat='Seat 3', date='July 7, 2024', time='07:00 PM'}
