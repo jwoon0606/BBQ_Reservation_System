@@ -112,6 +112,7 @@ public class Main extends JFrame {
         initializeCalendar();
     }
 
+
     private void initializeCalendar() {
         currentCalendar = new GregorianCalendar();
 
