@@ -13,10 +13,16 @@ public class ReservationForm extends JFrame {
     private JButton reserveButton;
     private Calendar calendar;
     private List<Reservation> reservations;
+    private int day;
+    private String time;
+    private String seat;
 
-    public ReservationForm(List<Reservation> reservations, Calendar calendar) {
+    public ReservationForm(List<Reservation> reservations, Calendar calendar, int day, String time, String seat) {
         this.reservations = reservations;
         this.calendar = calendar;
+        this.day = day;
+        this.time = time;
+        this.seat = seat;
 
         setTitle("Make a Reservation");
         setSize(400, 300);
@@ -34,15 +40,11 @@ public class ReservationForm extends JFrame {
 
         JLabel seatLabel = new JLabel("Seat:");
         add(seatLabel);
-        String[] seats = {"A1", "A2", "A3", "B1", "B2", "B3"};
-        seatComboBox = new JComboBox<>(seats);
-        add(seatComboBox);
+        add(new JLabel(seat));
 
         JLabel timeLabel = new JLabel("Time:");
         add(timeLabel);
-        String[] times = {"12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM"};
-        timeComboBox = new JComboBox<>(times);
-        add(timeComboBox);
+        add(new JLabel(time));
 
         reserveButton = new JButton("Reserve");
         add(reserveButton);
@@ -57,16 +59,14 @@ public class ReservationForm extends JFrame {
     private void makeReservation() {
         String name = nameField.getText();
         String phone = phoneField.getText();
-        String seat = (String) seatComboBox.getSelectedItem();
-        String time = (String) timeComboBox.getSelectedItem();
-        String date = (calendar.get(Calendar.MONTH) + 1) + " " + calendar.get(Calendar.DAY_OF_MONTH) + ", " + calendar.get(Calendar.YEAR);
+        String date = (calendar.get(Calendar.MONTH) + 1) + " " + day + ", " + calendar.get(Calendar.YEAR);
 
         if (name.isEmpty() || phone.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please fill in all fields", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        Reservation reservation = new Reservation(name, phone, seat, time, date);
+        Reservation reservation = new Reservation(name, phone, seat, date, time);
         reservations.add(reservation);
         ReservationUtils.saveReservations(reservations, Main.FILE_NAME);
 
