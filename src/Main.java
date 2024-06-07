@@ -1,5 +1,5 @@
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;  // DefaultTableModel 클래스 임포트
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,25 +11,13 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Main extends JFrame {
-    public static final String FILE_NAME = "test.txt";  // FILE_NAME을 public static으로 변경
-    private JTextField nameField;
-    private JTextField phoneField;
-    private JComboBox<String> seatComboBox;
-    private JComboBox<String> timeComboBox;
-    private JButton reserveButton;
-    private JTextArea reservationArea;
+    public static final String FILE_NAME = "test.txt";
     private List<Reservation> reservations;
-    private JComboBox<String> monthComboBox;
-    private JComboBox<Integer> yearComboBox;
-    private JComboBox<Integer> dayComboBox;
     private JTable calendarTable;
     private Calendar currentCalendar;
-    private JButton loginButton;
-    private JTextField loginNameField;
-    private JPasswordField loginPasswordField;
     private JPanel loginPanel;
     private JPanel mainPanel;
-    private JTextArea reservationDetailsArea; // 예약 세부 정보를 표시할 텍스트 영역
+    private JTextArea reservationDetailsArea;
 
     public Main() {
         reservations = new ArrayList<>();
@@ -59,7 +47,7 @@ public class Main extends JFrame {
         loginNameLabel.setBounds(20, 20, 80, 25);
         loginPanel.add(loginNameLabel);
 
-        loginNameField = new JTextField();
+        JTextField loginNameField = new JTextField();
         loginNameField.setBounds(100, 20, 160, 25);
         loginPanel.add(loginNameField);
 
@@ -67,11 +55,11 @@ public class Main extends JFrame {
         loginPasswordLabel.setBounds(20, 50, 80, 25);
         loginPanel.add(loginPasswordLabel);
 
-        loginPasswordField = new JPasswordField();
+        JPasswordField loginPasswordField = new JPasswordField();
         loginPasswordField.setBounds(100, 50, 160, 25);
         loginPanel.add(loginPasswordField);
 
-        loginButton = new JButton("Login");
+        JButton loginButton = new JButton("Login");
         loginButton.setBounds(100, 80, 160, 25);
         loginPanel.add(loginButton);
 
@@ -112,11 +100,14 @@ public class Main extends JFrame {
         initializeCalendar();
     }
 
-
     private void initializeCalendar() {
         currentCalendar = new GregorianCalendar();
 
-        calendarTable = new JTable();
+        calendarTable = new JTable() {
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
         calendarTable.setRowHeight(40);
         CalendarCellRenderer renderer = new CalendarCellRenderer(currentCalendar, reservations);
         calendarTable.setDefaultRenderer(Object.class, renderer);
@@ -131,7 +122,7 @@ public class Main extends JFrame {
                     int day = (int) value;
                     renderer.setSelectedDay(day);
                     updateCalendar();
-                    showReservationsForDay(day);
+                    showTimeTable(day);
                 }
             }
         });
@@ -153,8 +144,7 @@ public class Main extends JFrame {
     }
 
     private void showReservationForm() {
-        ReservationForm reservationForm = new ReservationForm(reservations, currentCalendar);
-        reservationForm.setVisible(true);
+        // 기존 showReservationForm 메서드를 삭제합니다.
     }
 
     private void updateCalendar() {
@@ -180,18 +170,9 @@ public class Main extends JFrame {
         calendarTable.setModel(model);
     }
 
-    private void showReservationsForDay(int day) {
-        String selectedDate = (currentCalendar.get(Calendar.MONTH) + 1) + " " + day + ", " + currentCalendar.get(Calendar.YEAR);
-        StringBuilder details = new StringBuilder("Reservations for " + selectedDate + ":\n");
-        for (Reservation reservation : reservations) {
-            if (reservation.getDate().equals(selectedDate)) {
-                details.append("Time: ").append(reservation.getTime())
-                        .append(", Name: ").append(reservation.getName())
-                        .append(", Phone: ").append(reservation.getPhone())
-                        .append(", Seat: ").append(reservation.getSeat()).append("\n");
-            }
-        }
-        reservationDetailsArea.setText(details.toString());
+    private void showTimeTable(int day) {
+        TimeTableFrame timeTableFrame = new TimeTableFrame(reservations, currentCalendar, day);
+        timeTableFrame.setVisible(true);
     }
 
     public static void main(String[] args) {
