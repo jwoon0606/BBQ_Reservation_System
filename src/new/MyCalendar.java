@@ -28,6 +28,11 @@ public class MyCalendar extends JFrame {
         gbc.weightx = 1.0;
         gbc.weighty = 0.1;
         add(topPanel, gbc);
+        topPanel.getViewReservationsButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                showReservations(); // 예약 목록 창을 엽니다.
+            }
+        });
 
         bottomPanel = new BottomPanel();
         gbc.gridx = 0;
@@ -35,6 +40,7 @@ public class MyCalendar extends JFrame {
         gbc.weightx = 1.0;
         gbc.weighty = 0.9;
         add(bottomPanel, gbc);
+        
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -109,6 +115,12 @@ public class MyCalendar extends JFrame {
                 addReservation(day);
             }
         });
+        reservationFrame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                addEventListeners(); // 예약 폼이 닫힌 후에도 다시 이벤트 리스너를 추가하여 버튼을 누를 때 예약 폼이 열리도록 함
+            }
+        });
 
         reservationFrame.setVisible(true);
 
@@ -173,6 +185,7 @@ public class MyCalendar extends JFrame {
         reservationArea.setText("Reservation made:"+ "\n" + reservation.toString());
 
         saveReservations();
+        
 
         bottomPanel.updateCalendar();
     }
@@ -226,4 +239,5 @@ public class MyCalendar extends JFrame {
 
         reservationListFrame.setVisible(true);
     }
+    
 }
