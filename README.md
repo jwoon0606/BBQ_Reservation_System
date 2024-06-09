@@ -1,11 +1,11 @@
-# :soccer::meat_on_bone::basketball:한동 예약 관리 프로그램
-Input image here
-<!--<img width="500" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/96f3d83f-f0ef-41fe-b7b5-2d850d043ed0">-->
+# :meat_on_bone:한동 예약 관리 프로그램
+
+![MainFrame.png](https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png)
 
 ## 프로젝트 소개
 - 한동대학교 장소 예약 관리 프로그램입니다.
 - 장소 예약 및 관리가 가능합니다.
-- 히딩크 필드, 농구장, 테니스장, bbq시트 예약이 가능합니다.(예정)
+- bbq시트 예약이 가능합니다.
 
 ## 팀원 구성
 |  이민석(22100504)   |                             남종운(22000220)                                           |
@@ -14,7 +14,7 @@ Input image here
 |[@Glen02lee](https://github.com/Glen02lee)|                            [@jwoon0606](https://github.com/jwoon0606)               |
 
 ## 1. 개발 환경
-- Front : Java GUI(Swing)
+- Front : Java GUI(Awt, Swing)
 - Back-end : Java
 - 버전 관리 : Github
 
