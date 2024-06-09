@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class TopPanel extends AbstractPanel {
     private JLabel title = new JLabel();
@@ -44,13 +43,6 @@ public class TopPanel extends AbstractPanel {
         viewReservationsButton.setText("View Reservations");
 
         setInformationPanel();
-
-        viewReservationsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                showReservations();
-            }
-        });
     }
 
     private void setTopPanel() {
