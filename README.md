@@ -1,7 +1,6 @@
 # :meat_on_bone:한동 예약 관리 프로그램
 
-![MainFrame.png](https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png)
-
+<img src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png", height="400", width="300">
 ## 프로젝트 소개
 - 한동대학교 장소 예약 관리 프로그램입니다.
 - 장소 예약 및 관리가 가능합니다.
