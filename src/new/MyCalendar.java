@@ -1,20 +1,12 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import java.util.*;
+
 
 public class MyCalendar extends JFrame {
+    private TopPanel topPanel;
     private BottomPanel bottomPanel;
     private ArrayList<Reservation> reservations;
     private JTextArea reservationArea;
@@ -23,12 +15,26 @@ public class MyCalendar extends JFrame {
 
     public MyCalendar(ArrayList<Reservation> reservations) {
         this.reservations = reservations;
-
-        setTitle("My Calendar");
+        setTitle("BBQ Reservation Program");
         setSize(700, 800);
 
+        setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+
+        topPanel = new TopPanel();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.1;
+        add(topPanel, gbc);
+
         bottomPanel = new BottomPanel();
-        add(bottomPanel);
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.weightx = 1.0;
+        gbc.weighty = 0.9;
+        add(bottomPanel, gbc);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

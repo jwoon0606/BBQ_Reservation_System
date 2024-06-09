@@ -7,8 +7,8 @@ import java.util.GregorianCalendar;
 
 public class BottomPanel extends AbstractPanel {
     private JLabel monthLabel = new JLabel();
-    private JButton prevButton = new JButton();
-    private JButton nextButton = new JButton();
+    private JButton prevButton = new JButton("<");
+    private JButton nextButton = new JButton(">");
     private Calendar currentMonth = new GregorianCalendar();
     private JPanel calendarPanel = new JPanel();
 
