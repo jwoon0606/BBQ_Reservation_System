@@ -2,6 +2,7 @@
 <p align="center">
 <img src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png" height="500" width="400">
 </p>
+
 ## 프로젝트 소개
 - 한동대학교 장소 예약 관리 프로그램입니다.
 - 장소 예약 및 관리가 가능합니다.
