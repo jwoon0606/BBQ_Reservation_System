@@ -1,8 +1,0 @@
-Reservation{name='sefe', phone='010-3819-3892', seat='Seat 4', date='January 1, 2024', time='08:30 AM'}
-Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='08:30 AM'}
-Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='01:00 PM'}
-Reservation{name='sfefse', phone='010-3829-8191', seat='Seat 3', date='May 1, 2024', time='05:30 PM'}
-Reservation{name='evjosje', phone='010-2892-8291', seat='Seat 3', date='July 7, 2024', time='07:00 PM'}
-Reservation{name='callendar', phone='010-9389-1821', seat='Seat 3', date='6 4, 2024', time='04:00 PM'}
-Reservation{name='너러러', phone='010-2839-8282', seat='Seat 4', date='6 11, 2024', time='08:30 AM'}
-Reservation{name='너러러', phone='010-2839-8282', seat='Seat 4', date='6 11, 2024', time='05:30 PM'}
