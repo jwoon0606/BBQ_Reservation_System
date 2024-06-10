@@ -41,15 +41,15 @@ public class CalendarFrame extends JFrame {
         setTitle("BBQ Reservation Program");
         setSize(700, 800);
 
+        loadReservations(); // 예약 정보 로드
+
         setComponents();
+        setEvents();
         setTopPanel();
         setBottomPanel();
         setMainPanel();
-        setEvents();
 
         add(mainPanel);
-
-        loadReservations(); // 예약 정보 로드
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -207,7 +207,6 @@ public class CalendarFrame extends JFrame {
         });
 
         viewReservationsButton.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 showReservations();
             }
@@ -388,9 +387,12 @@ public class CalendarFrame extends JFrame {
         try (BufferedReader reader = new BufferedReader(new FileReader("reservations.txt"))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(", ");
+                String[] parts = line.split(",");
                 if (parts.length == 5) {
                     reservations.add(new Reservation(parts[0], parts[1], parts[2], parts[3], parts[4]));
+                } else {
+                    System.out.println("Invalid line: " + line);
+
                 }
             }
         } catch (IOException e) {
@@ -404,12 +406,14 @@ public class CalendarFrame extends JFrame {
         reservationListFrame.setLayout(new BorderLayout());
 
         JTextArea reservationListArea = new JTextArea();
-        reservationListArea.setEditable(false);
         reservationListArea.setFont(new Font("Monospaced", Font.PLAIN, 12)); // 보기 좋은 폰트 설정
+        String str = new String();
         for (Reservation reservation : reservations) {
-            reservationListArea.append(reservation.toString() + "\n");
+            str += reservation.toString() + "\n";
+            System.out.println(reservation.toString());
         }
-
+        System.out.println("str: "+str);
+        reservationListArea.setText(str);
         JScrollPane scrollPane = new JScrollPane(reservationListArea);
         reservationListFrame.add(scrollPane, BorderLayout.CENTER);
 
@@ -454,6 +458,6 @@ class Reservation {
 
     @Override
     public String toString() {
-        return String.format("%-10s,%-14s,%-6s,%-9s,%-8s", name, phone, seat, date, time);
+        return String.format("%-5s,%-14s,%-6s,%-9s,%-8s", name, phone, seat, date, time);
     }
 }
