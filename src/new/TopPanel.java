@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class TopPanel extends AbstractPanel {
     private JLabel title = new JLabel();
-    private JButton viewReservationsButton = new JButton();
+    public JButton viewReservationsButton = new JButton();
     private JLabel voidLabel1 = new JLabel();
     private JLabel voidLabel2 = new JLabel();
     private JLabel voidLabel3 = new JLabel();
@@ -43,6 +43,24 @@ public class TopPanel extends AbstractPanel {
         viewReservationsButton.setText("View Reservations");
 
         setInformationPanel();
+    }
+
+    private void showReservations() {
+        JFrame reservationListFrame = new JFrame("Reservations List");
+        reservationListFrame.setSize(400, 400);
+        reservationListFrame.setLayout(new BorderLayout());
+
+        JTextArea reservationListArea = new JTextArea();
+        reservationListArea.setEditable(false);
+        reservationListArea.setFont(new Font("Monospaced", Font.PLAIN, 12)); // 보기 좋은 폰트 설정
+        for (Reservation reservation : reservations) {
+            reservationListArea.append(reservation.toString() + "\n");
+        }
+
+        JScrollPane scrollPane = new JScrollPane(reservationListArea);
+        reservationListFrame.add(scrollPane, BorderLayout.CENTER);
+
+        reservationListFrame.setVisible(true);
     }
 
     private void setTopPanel() {
