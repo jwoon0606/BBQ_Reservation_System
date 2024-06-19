@@ -1,6 +1,6 @@
 # :meat_on_bone:BBQ Reservation System
 <p align="center">
-<img src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png" height="500" width="400">
+<img src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/MainFrame.png" height="500" width="400">
 </p>
 
 ## 1. Project description
@@ -38,9 +38,9 @@
     + 번호는 등록된 순서대로 배정됩니다. 번호를 이용하여 정보 수정, 삭제가 가능합니다.
      + 회원 번호는 중복되는 이름을 구별하기 위해 임의로(1~9999) 주어지는 번호입니다.
 
-|                                                      조회 기능                                                      |
-|:---------------------------------------------------------------------------------------------------------------:|
-| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/NextMonth.png"> |  
+|                                                 달 변경                                                  |
+|:-----------------------------------------------------------------------------------------------------:|
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/NextMonth.png"> |  
 <br>
 
 ### [회원 추가]
