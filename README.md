@@ -1,6 +1,6 @@
 # :meat_on_bone:BBQ Reservation System
 <p align="center">
-<img src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/MainFrame.png" height="500" width="400">
+<img src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png" height="500" width="400">
 </p>
 
 ## 1. Project description
@@ -40,7 +40,7 @@
 
 |                                                 달 변경                                                  |
 |:-----------------------------------------------------------------------------------------------------:|
-| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/NextMonth.png"> |  
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png"> |  
 <br>
 
 ### [회원 추가]
