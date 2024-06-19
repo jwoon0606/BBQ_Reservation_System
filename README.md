@@ -113,4 +113,4 @@
 
 ### Minsuk Lee (Glen02lee)
 - Reflections
-  + [Insert personal reflections here]
+  + I think it was a very good experience to use a gui like Java's swing. It was an opportunity to learn the content by practically practicing what I learned from Java's theory.
