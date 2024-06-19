@@ -1,42 +1,46 @@
-# :soccer::meat_on_bone::basketball:한동 예약 관리 프로그램
-Input image here
-<!--<img width="500" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/96f3d83f-f0ef-41fe-b7b5-2d850d043ed0">-->
+# :meat_on_bone:BBQ Reservation System
+<p align="center">
+<img src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/MainFrame.png" height="500" width="400">
+</p>
 
-## 프로젝트 소개
-- 한동대학교 장소 예약 관리 프로그램입니다.
-- 장소 예약 및 관리가 가능합니다.
-- 히딩크 필드, 농구장, 테니스장, bbq시트 예약이 가능합니다.(예정)
+## 1. Project description
+- 한동대학교 BBQ 자리 예약 관리 프로그램입니다.
+- 원하는 날짜에 예약이 가능합니다.
+- 예약된 내용을 열람할 수 있습니다.
 
-## 팀원 구성
-|  이민석(22100504)   |                             남종운(22000220)                                           |
-|:-----------:|:-----------------------------------------------------------------------------------:|
-| <img src="https://github.com/Glen02lee.png" alt="프로필 이미지" width="200" height="200"> |  <img src="https://github.com/jwoon0606.png" alt="프로필 이미지" width="200" height="200">|
-|[@Glen02lee](https://github.com/Glen02lee)|                            [@jwoon0606](https://github.com/jwoon0606)               |
+## 2. Project members
+|                                Minsuk Lee(22100504)                                 |                               Jongwoon Nam(22000220)                                |
+|:-----------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
+| <img src="https://github.com/Glen02lee.png" alt="프로필 이미지" width="200" height="200"> | <img src="https://github.com/jwoon0606.png" alt="프로필 이미지" width="200" height="200"> |
+|                     [@Glen02lee](https://github.com/Glen02lee)                      |                     [@jwoon0606](https://github.com/jwoon0606)                      |
 
-## 1. 개발 환경
-- Front : Java GUI(Swing)
+## 3. 개발 환경
+- Front : Java GUI(Awt, Swing)
 - Back-end : Java
 - 버전 관리 : Github
 
-## 2. 개발 기간
+## 4. 개발 기간
 ### 개발 기간
-- 전체 개발 기간 : 2024-5-15 ~ (진행중)
-- GUI 구현 : 2024-5-15 ~ (진행중)
-- 기능 구현 : 2024-5-15 ~ (진행중)
+- 전체 개발 기간 : 2024-5-15 ~ 2024-6-6
+- GUI 구현 : 2024-5-15 ~ 2024-6-6
+- 기능 구현 : 2024-5-15 ~ 2024-6-1
 
 ### 작업 관리
 - 주기적으로 오프라인 미팅을 가졌습니다.
 
-## 3. 메뉴별 기능
-(아래는 예시)
-### [조회]
-- 현재 등록된 회원들의 정보를 출력합니다.(번호,회원 번호,이름,연락처,총 소비량,등급,포인트 잔액)
-    + 번호는 등록된 순서대로 배정됩니다. 번호를 이용하여 정보 수정, 삭제가 가능합니다.
-    + 회원 번호는 중복되는 이름을 구별하기 위해 임의로(1~9999) 주어지는 번호입니다.
+## 5. UML diagram of classes and interfaces
 
-| 조회 기능     |
-|:-----------:|
-|<img width="532" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/f208b176-f318-4f81-9cbe-ea0611b9fe3a">|  
+## 6. User's guide
+### [날짜 선택]
+- 원하는 예약 날짜를 선택할 수 있습니다.
+  + "<" ">" 버튼으로 원하는 달을 선택할 수 있습니다.
+  + 
+    + 번호는 등록된 순서대로 배정됩니다. 번호를 이용하여 정보 수정, 삭제가 가능합니다.
+     + 회원 번호는 중복되는 이름을 구별하기 위해 임의로(1~9999) 주어지는 번호입니다.
+
+|                                                 달 변경                                                  |
+|:-----------------------------------------------------------------------------------------------------:|
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/screenshots/NextMonth.png"> |  
 <br>
 
 ### [회원 추가]

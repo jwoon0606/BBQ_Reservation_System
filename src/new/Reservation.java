@@ -1,7 +1,4 @@
-import java.io.Serializable;
-
-public class Reservation implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Reservation {
     private String name;
     private String phone;
     private String seat;
@@ -38,12 +35,6 @@ public class Reservation implements Serializable {
 
     @Override
     public String toString() {
-        return "Reservation{" +
-                "name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
-                ", seat='" + seat + '\'' +
-                ", date='" + date + '\'' +
-                ", time='" + time + '\'' +
-                '}';
+        return String.format("%-10s,%-14s,%-6s,%-9s,%-8s", name, phone, seat, date, time);
     }
 }

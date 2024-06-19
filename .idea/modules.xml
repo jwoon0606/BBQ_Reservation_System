@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/JavaProgrammingProject.iml" filepath="$PROJECT_DIR$/.idea/JavaProgrammingProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reservation_system/reservationSystem.iml" filepath="$PROJECT_DIR$/reservation_system/reservationSystem.iml" />
     </modules>
   </component>
 </project>

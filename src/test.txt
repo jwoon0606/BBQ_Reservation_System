@@ -1,4 +1,0 @@
-Reservation{name='ㄷㅍㄴㅍㄴ', phone='010-2882-8281', seat='Seat 3', date='April 2023', time='2:00 PM'}
-Reservation{name='ㄷㅍㄴㅍㄴ', phone='010-2882-8281', seat='Seat 3', date='April 2023', time='4:00 PM'}
-Reservation{name='ejovjs', phone='010-9291-2881', seat='Seat 2', date='May 2023', time='12:00 PM'}
-Reservation{name='ejovjs', phone='010-9291-2881', seat='Seat 2', date='May 2023', time='2:00 PM'}
