@@ -1,3 +1,5 @@
+package bbq;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -374,7 +376,7 @@ public class CalendarFrame extends JFrame {
     }
 
     private void saveReservations() {
-        try (PrintWriter writer = new PrintWriter(new FileWriter("reservations.txt", false))) { // 중복 방지 위해 false
+        try (PrintWriter writer = new PrintWriter(new FileWriter("reservations.txt", false))) {
             for (Reservation reservation : reservations) {
                 writer.println(reservation);
             }
@@ -406,7 +408,7 @@ public class CalendarFrame extends JFrame {
         reservationListFrame.setLayout(new BorderLayout());
 
         JTextArea reservationListArea = new JTextArea();
-        reservationListArea.setFont(new Font("Monospaced", Font.PLAIN, 12)); // 보기 좋은 폰트 설정
+        reservationListArea.setFont(new Font("Monospaced", Font.PLAIN, 12));
         String str = new String();
         for (Reservation reservation : reservations) {
             str += reservation.toString() + "\n";
