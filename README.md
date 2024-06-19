@@ -29,7 +29,16 @@
 - Regular offline meetings were held for project discussion and updates.
 
 ## 5. UML Diagram of Classes and Interfaces
-*(The UML diagram would be included here.)*
+### [UML Diagram]
+- Reservation details are saved in the "reservations.txt" file.
+
+|                                                      UML Diagram                                                       |
+|:----------------------------------------------------------------------------------------------------------------------:|
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/uml1.PNG?raw=true"> |
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/uml2.PNG?raw=true"> |
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/uml3.PNG?raw=true"> |
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/uml4.PNG?raw=true"> |
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/uml5.PNG?raw=true"> |
 
 ## 6. User's Guide
 
