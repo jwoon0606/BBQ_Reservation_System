@@ -1,148 +1,107 @@
-# :meat_on_bone:BBQ Reservation System
+# :meat_on_bone: BBQ Reservation System
 <p align="center">
 <img src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png" height="500" width="400">
 </p>
 
-## 1. Project description
-- 한동대학교 BBQ 자리 예약 관리 프로그램입니다.
-- 원하는 날짜에 예약이 가능합니다.
-- 예약된 내용을 열람할 수 있습니다.
+## 1. Project Description
+- This is a BBQ seat reservation management program for Handong University.
+- Users can make reservations for their desired dates.
+- Users can view existing reservations.
 
-## 2. Project members
-|                                Minsuk Lee(22100504)                                 |                               Jongwoon Nam(22000220)                                |
+## 2. Project Members
+|                                Minsuk Lee (22100504)                                 |                               Jongwoon Nam (22000220)                                |
 |:-----------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------:|
-| <img src="https://github.com/Glen02lee.png" alt="프로필 이미지" width="200" height="200"> | <img src="https://github.com/jwoon0606.png" alt="프로필 이미지" width="200" height="200"> |
+| <img src="https://github.com/Glen02lee.png" alt="Profile Image" width="200" height="200"> | <img src="https://github.com/jwoon0606.png" alt="Profile Image" width="200" height="200"> |
 |                     [@Glen02lee](https://github.com/Glen02lee)                      |                     [@jwoon0606](https://github.com/jwoon0606)                      |
 
-## 3. 개발 환경
-- Front : Java GUI(Awt, Swing)
-- Back-end : Java
-- 버전 관리 : Github
+## 3. Development Environment
+- Front-end: Java GUI (AWT, Swing)
+- Back-end: Java
+- Version Control: GitHub
 
-## 4. 개발 기간
-### 개발 기간
-- 전체 개발 기간 : 2024-5-15 ~ 2024-6-6
-- GUI 구현 : 2024-5-15 ~ 2024-6-6
-- 기능 구현 : 2024-5-15 ~ 2024-6-1
+## 4. Development Period
+### Timeline
+- Overall development period: May 15, 2024 - June 6, 2024
+- GUI implementation: May 15, 2024 - June 6, 2024
+- Feature implementation: May 15, 2024 - June 1, 2024
 
-### 작업 관리
-- 주기적으로 오프라인 미팅을 가졌습니다.
+### Project Management
+- Regular offline meetings were held for project discussion and updates.
 
-## 5. UML diagram of classes and interfaces
+## 5. UML Diagram of Classes and Interfaces
+*(The UML diagram would be included here.)*
 
-## 6. User's guide
-### [날짜 선택]
-- 원하는 예약 날짜를 선택할 수 있습니다.
-  + "<" ">" 버튼으로 원하는 달을 선택할 수 있습니다.
-  + 
-    + 번호는 등록된 순서대로 배정됩니다. 번호를 이용하여 정보 수정, 삭제가 가능합니다.
-     + 회원 번호는 중복되는 이름을 구별하기 위해 임의로(1~9999) 주어지는 번호입니다.
+## 6. User's Guide
 
-|                                                 달 변경                                                  |
-|:-----------------------------------------------------------------------------------------------------:|
-| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png"> |  
+### [Select Date]
+- Users can choose the desired month from the displayed calendar.
+  + Use the "<" ">" buttons to navigate through months.
+
+|                                                  Month Navigation                                                  |
+|:---------------------------------------------------------------------------------------------------------------:|
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/MainFrame.png"> |
+
+- Users can select the desired date.
+  + Dates can be selected with a mouse click.
+  + A reservation window will pop up.
+
+|                                                   Date Selection                                                   |                                                          Reservation Window                                                           |
+|:----------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------:|
+| <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ChooseDate.png"> | <img width="532" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ChooseDateReservation.png"> |
+
 <br>
 
-### [회원 추가]
-- 새로운 회원을 추가할 수 있습니다.
-- 이름과 휴대폰 번호가 필요합니다.
-- 회원 등록되면 자동으로 2000 포인트 적립됩니다.
+### [Reservation]
+- Users can make reservations for the selected date.
+- Some required information must be provided.
+  + Name, phone number, seat number, and time are required.
 
-|   회원 추가 기능   |
-|:-----------:|
-|<img width="535" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/9df42f6d-2eb6-4421-9d3c-9987665cddde">|
+|                                                         Reservation Success                                                        |
+|:----------------------------------------------------------------------------------------------------------------------------------:|
+| <img width="535" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ReservationSuccess.png"> |
+
+- The name field cannot contain numbers.
+
+|                                                               Reservation Error (1)                                                               |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------:|
+| <img width="535" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ReservationError_NameContainsNumber.png"> |
+
+- The phone number must follow the format 010-0000-0000.
+
+|                                                                Reservation Error (2)                                                                |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------:|
+| <img width="535" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ReservationError_PhoneNumberForm.png"> |
+
+- Reservations cannot be made if there is already a reservation for the same seat at the same time.
+
+|                                                                Reservation Error (3)                                                                |
+|:---------------------------------------------------------------------------------------------------------------------------------------------------:|
+| <img width="535" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ReservationError_SeatDuplication.png"> |
 <br>
 
-### [회원 정보 수정]
-- 회원 정보를 수정할 수 있습니다.
-- 회원 번호만 임의의 번호가 배정되며, 나머지는 모두 수정 가능 합니다.
-- 등급과 포인트 사용 가능 여부가 자동적으로 수정됩니다.
+### [View Reservation]
+- Users can view current reservations by clicking the "View Reservation" button.
 
-|   회원 정보 수정 기능   |
-|:-----------:|
-|<img width="535" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/e4d0a0e6-9b15-41f2-9ebd-65d9e875adfa">|
+|                                                     View Reservations                                                      |
+|:---------------------------------------------------------------------------------------------------------------------:|
+| <img width="535" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/ViewReservation.png"> |
 <br>
 
-### [회원 정보 삭제]
-- 회원의 정보를 삭제할 수 있습니다.
-- 해당 회원이 삭제되면, 뒤 번호 회원들의 번호가 하나씩 당겨 집니다.
+### [File I/O]
+- Reservation details are saved in the "reservations.txt" file.
 
-|   회원 정보 삭제  |
-|:-----------:|
-|<img width="600" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/018775a0-7485-434e-baf4-14ddbd1502f9">|
+|                                                         File I/O                                                         |
+|:----------------------------------------------------------------------------------------------------------------------:|
+| <img width="600" src="https://github.com/jwoon0606/JavaProgrammingProject/blob/main/screenshots/reservations.txt.png"> |
 <br>
 
+## 7. Reflections
+### Jongwoon Nam (jwoon0606)
+- Collaboration Experience
+  + Gained proficiency in version control and communication through GitHub by working on a project with others.
+- Java GUI Implementation
+  + Gained experience using AWT and Swing classes.
 
-### [회원 검색]
-- 원하는 회원을 검색할 수 있습니다.
-- 이름, 회원 번호, 등급 으로 검색이 가능힙니다.
-
-|  이름으로 찾기   |
-|:-----------:|
-|<img width="535" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/a8cd52d5-cd3a-41b1-accc-4bb38e158746">|
-<br>
-
-|  회원 번호로 찾기  |
-|:-----------:|
-|<img width="535" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/66823c23-262d-4992-bae7-4961bbeb7f68">|
-<br>
-
-|  등급으로 찾기  |
-|:-----------:|
-|<img width="600" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/4bca2649-2d92-49e1-9ed6-716b62e7079f">|
-<br>
-
-### [계산]
-- 회원이 계산할 금액을 정해줍니다.
-- 등급에 따라 자동적으로 할인율이 적용됩니다.
-- 5000포인트 이상일 때는 포인트 사용이 가능합니다.
-- 구매 금액의 10%가 포인트로 적립됩니다.
-
-|  계산 기능  |
-|:-----------:|
-|<img width="600" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/5402aa3e-53b2-40ee-8b36-35adeb7f50cf">|
-<br>
-
-
-
-### [저장]
-- "members.txt"파일과 "report.txt"파일에 저장할 수 있습니다.
-- 파일 변경은 shop_functions.c 파일의 8,9line에서 파일 명을 수정하면 됩니다.
-    + (8) #define INPUT_FILE "members.txt"
-    + (9) #define OUPUT_FILE "report.txt"
-
-|  저장 완료  |
-|:-----------:|
-|<img width="600" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/967b6221-393a-4034-9ad1-b2df8196ea19">|
-<br>
-
-|  "members.txt"  |
-|:-----------:|
-|<img width="492" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/82259c09-4d49-40f2-b7d0-710ed01cadea">|
-<br>
-
-
-|  "report.txt"  |
-|:-----------:|
-|<img width="513" src="https://github.com/jwoon0606/ProgrammingStudio/assets/162769592/ef08f0db-d38d-446a-8ea7-d2a4b17a7bfc">|
-<br>
-
-## 4. 제작 소감
-<!--
-- 헤더파일 작성 경험  
-  이때까지 연습으로만 해보고 실제 프로그램을 만들 때 헤더파일을 작성해본 경험이 없었는데 이번 기회를 통해 작성법과 사용법을 익힐 수 있었습니다..!
-
-- 브렌치 사용 경험  
-  비록 혼자서 제작했지만 마치 다양한 사람들과 함께 일하는 것처럼 따로따로 커밋하는 경험이 꽤 흥미로웠습니다.
-  앞으로 협업할 기회가 있다면 브랜치를 적극적으로 사용해 볼 것입니다.
-
-- 아이디어 구현 경험  
-  상상만 하던 기능들을 직접 구현해 보면서, 다른 기능들도 구현할 수 있겠다는 자신감이 생겼습니다.
-
-온전한 저의 아이디어로 제작했기 때문에 재밌게 제작할 수 있었습니다.  
-비록 README제작을 깜빡해서 좀 늦긴 했지만 뿌듯한 과제였습니다!
--->
-### 남종운(jwoon0606)
-- 소감
-### 이민석(Glen02lee)
-- 소감
+### Minsuk Lee (Glen02lee)
+- Reflections
+  + [Insert personal reflections here]
