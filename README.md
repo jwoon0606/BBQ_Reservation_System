@@ -4,6 +4,7 @@
 </p>
 
 ## 1. Project Description
+- This project was undertaken as part of the coursework for the university class "Java Programming"
 - This is a BBQ seat reservation management program for Handong University.
 - Users can make reservations for their desired dates.
 - Users can view existing reservations.
